@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.7",
-    "@astrojs/netlify": "^6.3.1",
+    "@astrojs/vercel": "^8.1.4",
     "@lucide/astro": "^0.503.0",
     "@tailwindcss/vite": "^4.1.4",
     "@types/alpinejs": "^3.13.11",
