@@ -1,0 +1,40 @@
+---
+// imports
+import Layout from "../layouts/Layout.astro";
+import { fetchAllRecipes } from "../data/data";
+
+// components
+import HeroSection from "../components/HeroSection.astro";
+import Container from "../components/Container.astro";
+import Card from "../components/Card.astro";
+
+// data
+const response = await fetchAllRecipes();
+const recipes = response.recipes;
+---
+
+<Layout>
+  <HeroSection />
+  <section id="recipes">
+    <Container>
+      <div class="animate mb-11">
+        <h2 class="text-heading mb-2">Discover, Create, Share</h2>
+        <p>Check out our most popular recipes!</p>
+      </div>
+
+      {
+        recipes ? (
+          <ul class="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-6">
+            {recipes.map((recipe: any) => (
+              <li class="animate">
+                <Card recipe={recipe} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="animate">No recipes found</p>
+        )
+      }
+    </Container>
+  </section>
+</Layout>

@@ -1,0 +1,15 @@
+---
+import { ChefHat } from "@lucide/astro";
+import Button from "./Button.astro";
+---
+
+<header class="border-b border-smoke">
+  <div
+    class="h-[68px] max-w-[1440px] w-full flex justify-between items-center px-5 tablet:px-20 desktop:px-40"
+  >
+    <a href="/"><ChefHat class="w-8 h-8" color="var(--color-orange)" /></a>
+    <div>
+      <Button href="/#recipes">Recipes</Button>
+    </div>
+  </div>
+</header>

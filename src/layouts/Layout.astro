@@ -1,0 +1,14 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Head from "../components/Head.astro";
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <Head />
+  <body class="font-montserrat text-black text-body-base">
+    <Header />
+    <slot />
+  </body>
+</html>

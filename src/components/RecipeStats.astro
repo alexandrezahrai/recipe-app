@@ -1,0 +1,34 @@
+---
+import { Clock, Flame, Star } from "@lucide/astro";
+
+const { recipe } = Astro.props;
+---
+
+<div
+  class="flex items-center justify-start gap-6 text-[14px] leading-none mb-6"
+>
+  <div class="flex items-center justify-center gap-1">
+    <Clock class="w-3.5 h-3.5" color="var(--color-orange)" />
+    <span>{recipe.cookTimeMinutes}</span>
+  </div>
+
+  <div class="flex items-center justify-center gap-1">
+    <Flame
+      class="w-3.5 h-3.5"
+      color="var(--color-orange)"
+      fill="var(--color-orange)"
+    />
+    <span>{recipe.caloriesPerServing}</span>
+  </div>
+
+  <div class="flex items-center justify-center gap-1">
+    <Star
+      class="w-3.5 h-3.5"
+      color="var(--color-orange)"
+      fill="var(--color-orange)"
+    />
+    <span>
+      {recipe.rating} ({recipe.reviewCount})
+    </span>
+  </div>
+</div>

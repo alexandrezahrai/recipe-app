@@ -1,0 +1,34 @@
+---
+// imports
+import { Image } from "astro:assets";
+import HeroImage from "../assets/hero-img.webp";
+
+// components
+import Button from "./Button.astro";
+import Container from "./Container.astro";
+---
+
+<section class="bg-smoke">
+  <Container>
+    <div
+      class="grid grid-cols-1 desktop:grid-cols-2 place-content-center place-items-center gap-10 tablet:gap-20 desktop:gap-0"
+    >
+      <div
+        class="animate order-2 desktop:order-1 text-center desktop:text-left"
+      >
+        <h1 class="text-display text-balance mb-5">
+          Master the Kitchen with Ease: Unleash Your Inner Chef Today!
+        </h1>
+        <p class="text-body-large text-balance desktop:w-1/2 mb-6">
+          Discover recipes helping you to find the easiest way to cook.
+        </p>
+        <Button href="#recipes">Browse Recipes</Button>
+      </div>
+      <div
+        class="animate order-1 desktop:order-2 overflow-visible desktop:h-[412px]"
+      >
+        <Image src={HeroImage} alt="hero image" class="h-full w-full" />
+      </div>
+    </div>
+  </Container>
+</section>

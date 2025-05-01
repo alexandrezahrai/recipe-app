@@ -1,0 +1,21 @@
+---
+import Button from "./Button.astro";
+import RecipeStats from "./RecipeStats.astro";
+
+const { recipe } = Astro.props;
+---
+
+<div class="group shadow-perfect rounded-lg overflow-clip">
+  <div class="w-full h-[340px] desktop:h-[364px] overflow-clip">
+    <img
+      src={recipe.image}
+      alt={recipe.name}
+      class="w-full h-full object-cover object-center transition-transform duration-200 ease-in group-hover:scale-[1.02]"
+    />
+  </div>
+  <div class="px-4 py-5">
+    <div class="text-body-large mb-2">{recipe.name}</div>
+    <RecipeStats recipe={recipe} />
+    <Button href={`/recipes/${recipe.id}`}>View Recipe</Button>
+  </div>
+</div>

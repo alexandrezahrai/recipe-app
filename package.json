@@ -1,0 +1,21 @@
+{
+  "name": "recipe-app",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/alpinejs": "^0.4.7",
+    "@astrojs/netlify": "^6.3.1",
+    "@lucide/astro": "^0.503.0",
+    "@tailwindcss/vite": "^4.1.4",
+    "@types/alpinejs": "^3.13.11",
+    "alpinejs": "^3.14.9",
+    "astro": "^5.7.8",
+    "tailwindcss": "^4.1.4"
+  }
+}

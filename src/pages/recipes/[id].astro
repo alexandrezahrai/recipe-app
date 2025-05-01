@@ -1,0 +1,78 @@
+---
+export const prerender = false;
+
+// imports
+import Layout from "../../layouts/Layout.astro";
+import { fetchAllRecipes } from "../../data/data";
+
+// components
+import Container from "../../components/Container.astro";
+import RecipeStats from "../../components/RecipeStats.astro";
+
+// props
+const { id } = Astro.params;
+
+// data
+const response = await fetchAllRecipes();
+const recipes = response.recipes;
+const recipe = recipes.find((recipe: any) => recipe.id === Number(id));
+
+// redirect
+if (!recipe) {
+  return Astro.redirect("/");
+}
+---
+
+<Layout>
+  <Container>
+    <div class="animate max-w-[722px] w-full mx-auto">
+      <h1 class="text-heading mb-4">{recipe.name}</h1>
+      <RecipeStats recipe={recipe} />
+
+      <hr class="solid border-smoke mb-6" />
+
+      <div class="w-full h-[377px] rounded-md overflow-clip mb-10">
+        <img
+          src={recipe.image}
+          alt={recipe.name}
+          class="w-full h-full object-cover object-center transition-transform duration-200 ease-in group-hover:scale-[1.02]"
+        />
+      </div>
+
+      <!-- Ingredients -->
+      <div class="mb-10">
+        <h2 class="text-subheading mb-4">Ingredients</h2>
+        <form action="" class="grid grid-cols-1 tablet:grid-cols-2">
+          {
+            recipe.ingredients.map((ingredient: any) => (
+              <div class="mb-4">
+                <input
+                  type="checkbox"
+                  id={ingredient}
+                  name={ingredient}
+                  value={ingredient}
+                  class="peer relative appearance-none w-6 h-6 top-1.5 border rounded-full border-orange cursor-pointer checked:bg-orange"
+                />
+                <label for={ingredient} class="pl-1 peer-checked:line-through">
+                  {ingredient}
+                </label>
+              </div>
+            ))
+          }
+        </form>
+      </div>
+
+      <!-- Instructions -->
+      <h3 class="text-subheading mb-4">Instructions</h3>
+      <ol class="list-none [counter-reset:item] pl-0">
+        {
+          recipe.instructions.map((instruction: any) => (
+            <li class="[counter-increment:item] relative text-pretty  pl-8 before:[content:counter(item)] before:absolute before:left-0 before:w-6 before:h-6 before:rounded-full before:bg-orange before:text-white before:text-[12px] before:flex before:items-center before:justify-center before:border before:border-orange mb-4">
+              {instruction}
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </Container>
+</Layout>

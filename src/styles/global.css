@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-montserrat: "Montserrat", sans-serif;
+
+  --color-orange: #f79f1a;
+  --color-rose: #efe7eb;
+  --color-smoke: #e5e7eb;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --shadow-perfect: 0px 4px 4px #00000020, 0px 12px 12px #00000010;
+
+  --breakpoint-*: initial;
+  --breakpoint-mobile: 414px;
+  --breakpoint-tablet: 744px;
+  --breakpoint-desktop: 1440px;
+
+  --text-*: initial;
+  --text-display: clamp(2.125rem, 3vw + 1.25rem, 2.75rem);
+  --text-display--line-height: 1.25em;
+  --text-heading: clamp(2rem, 2vw + 1rem, 2.25rem);
+  --text-heading--line-height: 1.25em;
+  --text-subheading: 1.5rem;
+  --text-subheading--line-height: 1.25em;
+  --text-body-large: 1.125rem;
+  --text-body-large--line-height: 1.5em;
+  --text-body-base: 1rem;
+  --text-body-base--line-height: 1.5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.25em;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+.animate {
+  @apply opacity-0 translate-y-3;
+  @apply transition-all duration-700 ease-out;
+}
+
+.animate.show {
+  @apply opacity-100 translate-y-0;
+}
