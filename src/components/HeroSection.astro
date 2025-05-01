@@ -27,7 +27,12 @@ import Container from "./Container.astro";
       <div
         class="animate order-1 desktop:order-2 overflow-visible desktop:h-[412px]"
       >
-        <Image src={HeroImage} alt="hero image" class="h-full w-full" />
+        <Image
+          src={HeroImage}
+          alt="hero image"
+          class="h-full w-full"
+          loading={"eager"}
+        />
       </div>
     </div>
   </Container>
